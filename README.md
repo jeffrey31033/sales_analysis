@@ -24,7 +24,11 @@ Sales Data: The primary dataset used for analysis derived from the final project
 
 ### First Phase 
 
-During the initial phase, I focused on constructing a data warehouse, gaining deeper insights into customer behavior and product-related trends. I began by selecting the order id as the primary column. Following this, I aggregated various aspects of revenue and discounts linked to different product types, spanning across numerous orders.
+During the initial phase, I focused on constructing a data warehouse, gaining deeper insights into customer behavior and product-related trends. I began by selecting the order id as the primary column. Following this, I aggregated various aspects of revenue and discounts linked to different product types, spanning across numerous orders. <br>
+(The table only screen shot for 25 rows among 830 rows)
+<img width="1032" alt="data warehouse 1" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/3a38cdfd-ade9-4dd6-bcb6-9543f308de0b">
+<img width="1006" alt="data warehouse 2" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/e40ec6aa-f74a-4f53-8626-624e8056ae2b">
+<img width="271" alt="data warehouse 3" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/d4964aa7-7f71-46ec-aa81-02207ba49063">
 
 ### Second Phase
 
