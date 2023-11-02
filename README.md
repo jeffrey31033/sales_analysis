@@ -3,8 +3,8 @@
 ## Table of Contents
 - [Project Overview](#Project-overview)
 - [Data Sources](#Data-sources)
-- [First Phase – Building Data Warehouse](#First-phase)
-- [Second Phase – Exploratory Data Analysis](#Second-phase)
+- [First Phase – Building Data Warehouse](#First-phase-building-data-warehouse)
+- [Second Phase – Exploratory Data Analysis](#Second-phase-exploratory-data-analysis)
 - [Code](#Code)
 
 ### Project Overview
@@ -68,7 +68,7 @@ The table clearly illustrates that there isn't a direct correlation between the 
 
 ### Code
 
-#### First phase - – Building Data Warehouse
+#### First phase – Building Data Warehouse
 ```sql
 SET sql_mode = (SELECT REPLACE(@@SQL_MODE, "ONLY_FULL_GROUP_BY", ""));
 
