@@ -46,20 +46,17 @@ The table clearly illustrates that there isn't a direct correlation between the 
 #### Country
 
 1. The top 10 countries have been the highest revenue generators for the past three years
-   <img width="544" alt="query_8-The top 10 countries produce the most revenue for 3 years" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/b24337ce-c8e6-4811-bf4a-d6486b6c4891">
-<br>
-This query provides vital data on the top 10 countries contributing the most to our revenue, including the specific percentage each country contributes to our total revenue. Such information is instrumental in guiding our resource allocation decisions, particularly in areas like advertising and marketing, enabling us to strategize our efforts more effectively in these key markets.
+   <img width="544" alt="query_8-The top 10 countries produce the most revenue for 3 years" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/b24337ce-c8e6-4811-bf4a-d6486b6c4891"> <br>
+   This query provides vital data on the top 10 countries contributing the most to our revenue, including the specific percentage each country contributes to our total revenue. Such information is instrumental in guiding our resource allocation decisions, particularly in areas like advertising and marketing, enabling us to strategize our efforts more effectively in these key markets.
 
 2. Which market holds the greatest potential?
-   <img width="680" alt="query_2-Which market has the most potential" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/e9cb959d-d469-48a1-9ffb-89d63a30022b">
-<br>
-Understanding growth rates across various markets is crucial in determining the focus countries for a company and in assessing the effectiveness of our strategies. If a significant investment in advertising in a particular country doesn't yield an increase in sales, it's a clear indicator that our marketing approach needs recalibration as the return on investment is not aligning with expectations. Moreover, it's important to recognize that while some countries such as Italy and Poland might not be among the top 10 countries in terms of overall contribution to our business, their high growth rates shouldn't be overlooked. Such markets demand greater attention due to their potential for rapid expansion.
+   <img width="680" alt="query_2-Which market has the most potential" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/e9cb959d-d469-48a1-9ffb-89d63a30022b"> <br>
+   Understanding growth rates across various markets is crucial in determining the focus countries for a company and in assessing the effectiveness of our strategies. If a significant investment in advertising in a particular country doesn't yield an increase in sales, it's a clear indicator that our marketing approach needs recalibration as the return on investment is not aligning with expectations. Moreover, it's important to recognize that while some countries such as Italy and Poland might not be among the top 10 countries in terms of overall contribution to our business, their high growth rates shouldn't be overlooked. Such markets demand greater attention due to their potential for rapid expansion.
 
 #### Product
 
 1. Are the discounts offered on various product types justified?
-   <img width="506" alt="query_6-Are the discounts on different product type reasonable" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/fbf2c28d-3543-47cd-8fe6-267420fb71d8">
-<br>
-The table provides a comparative analysis of the ranking based on percentage discounts and the ranking in terms of total revenue. Though meat/poultry and seafood categories are not among the most valuable for our company, they still receive significant discounts. Unless there are some specific reasons justifying this strategy, it may be prudent to reevaluate our discount policies for these products.
+   <img width="506" alt="query_6-Are the discounts on different product type reasonable" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/fbf2c28d-3543-47cd-8fe6-267420fb71d8"> <br>
+   The table provides a comparative analysis of the ranking based on percentage discounts and the ranking in terms of total revenue. Though meat/poultry and seafood categories are not among the most valuable for our company, they still receive significant discounts. Unless there are some specific reasons justifying this strategy, it may be prudent to reevaluate our discount policies for these products.
 
 
