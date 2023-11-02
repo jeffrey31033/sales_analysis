@@ -24,27 +24,23 @@ To acquire a more profound understanding of customer behavior and product-relate
 #### Customers
 
 1. Should discounts be offered to these customers?
-   <img width="525" alt="query_1-Should we give discounts to these customers" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/2b9a0c95-081b-4759-96e9-bed87f067d1a">  <br> 
-The table provides insights into which customers haven't delivered the value we anticipated. It's organized by the rank of the discount percentage. Typically, larger discounts are reserved for customers who buy more products from us. However, there's a noticeable discrepancy in the volume of products purchased by Piccolo und mehr and LILA-Supermercado compared to the discounts they receive. Unless there are specific reasons for this anomaly, we should consider reducing their discount percentages.
+   <img width="525" alt="query_1-Should we give discounts to these customers" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/2b9a0c95-081b-4759-96e9-bed87f067d1a"> <br>
+   The table provides insights into which customers haven't delivered the value we anticipated. It's organized by the rank of the discount percentage. Typically, larger discounts are reserved for customers who buy more products from us. However, there's a noticeable discrepancy in the volume of products purchased by Piccolo und mehr and LILA-Supermercado compared to the discounts they receive. Unless there are specific reasons for this anomaly, we should consider reducing their discount percentages.
 
 2. What is the predominant product type purchased by each customer?
-   <img width="389" alt="query_3-What product type does a customer buy the most" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/203bb7f6-610c-4cb0-994a-f20e2a018dba">
- <br> 
+   <img width="389" alt="query_3-What product type does a customer buy the most" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/203bb7f6-610c-4cb0-994a-f20e2a018dba"> <br> 
 The table offers a detailed view of each customer's revenue composition. With this knowledge of their revenue structure, we're equipped to tailor our pricing strategies according to different customer tiers. This approach allows us to create a product portfolio and implement bundle pricing for our clients. Take Bon app’ as an example, considering that seafood and meat/poultry are ranked first and eighth in sales respectively, a strategic move would be to combine select offerings from both categories into a bundled product portfolio. This strategy could potentially enhance our sales in the meat/poultry category.
 
 3. Could we be losing key customers due to delayed shipments?
-   <img width="595" alt="query_4-Are we possible losing our important due to the late shipment" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/3cb5e954-ec1f-468f-8602-42c50435c955">
-<br>
+   <img width="595" alt="query_4-Are we possible losing our important due to the late shipment" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/3cb5e954-ec1f-468f-8602-42c50435c955"> <br>
 Ensuring order processing on time is key to enhancing customer experience, especially for our most valuable clients. The data reveals a discrepancy between the required and actual shipping dates. The table highlights the proportion of late orders for each customer. Notably, among our top 20 customers by total revenue, eleven have experienced delays in receiving their orders. It's crucial for us to minimize these late deliveries, as the primary cause appears to be internal processing inefficiencies rather than shipping delays. Addressing this issue will improve customer satisfaction.
 
 4. Is our dependence on a particular shipper excessively high for each individual customer?
-   <img width="773" alt="query_5-Do we rely too much on one specific shipper" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/09fcd972-55cb-478c-bb00-429cf43f8c46">
-<br>
+   <img width="773" alt="query_5-Do we rely too much on one specific shipper" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/09fcd972-55cb-478c-bb00-429cf43f8c46"> <br>
 The data presented provides valuable perspectives on risk distribution. Take Norway as an example: a significant portion of the total shipments predominantly depends on United Package. This scenario highlights a considerable risk: if United Package were to face any operational challenges, it would be difficult for us to find an alternative promptly. Such a dependency means that any disruption in United Package's services could impede our ability to deliver products efficiently, potentially resulting in customer dissatisfaction. It's important for us to consider diversifying our shipping partners to mitigate these risks.
 
 5. Which other customers are significant to our business?
-   <img width="646" alt="query_7-Which customers are also important to us" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/3a03ff93-5de6-45de-b4ba-c6180c1fd7f1">
-<br>
+   <img width="646" alt="query_7-Which customers are also important to us" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/3a03ff93-5de6-45de-b4ba-c6180c1fd7f1"> <br>
 The table clearly illustrates that there isn't a direct correlation between the rank based on total actual revenue and the rank based on average subtotal per order for each customer. For instance, Simons bistro ranks 35th in terms of subtotal, yet its average subtotal per order is impressively higher, at rank 6. This disparity suggests that customers like Simons bistro, who may not be top-ranked in overall spending but place large orders on average, should also be a focus for our sales strategy. Increasing the purchase frequency of such customers could significantly benefit our company due to the substantial value of each order they place.
 
 #### Country
