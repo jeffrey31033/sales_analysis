@@ -3,8 +3,9 @@
 ## Table of Contents
 - [Project Overview](#Project-overview)
 - [Data Sources](#Data-sources)
-- [First Phase](#First-phase)
-- [Second Phase](#Second-phase)
+- [First Phase - Building Data Warehouse](#First-phase)
+- [Second Phase - Exploratory Data Analysis](#Second-phase)
+- [Code](#Code)
 
 ### Project Overview
 
