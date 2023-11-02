@@ -4,7 +4,7 @@
 - [Project Overview](#Project-overview)
 - [Data Sources](#Data-sources)
 - [First Phase – Building Data Warehouse](#First-phase-building-data-warehouse)
-- [Second Phase – Exploratory Data Analysis](#Second-phase-exploratory-data-analysis)
+- [Second Phase – Exploratory Data Analysis](#second-phase-exploratory-data-analysis)
 - [Code](#Code)
 
 ### Project Overview
