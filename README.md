@@ -1,5 +1,9 @@
 # Data analysis in a retail store with SQL and Tableau
 
+## Table of Contents
+- [Project Overview](#Project-overview)
+- []
+
 ### Project Overview
 
 The objective of this data analysis project is to provide insights into various aspects of the sales performance of a retail store from 1996Q3 to 1998Q4. Through a comprehensive data analysis, our goal is to discern trends, make well-informed, data-driven decisions, and enhance our comprehension of the company's overall performance.
