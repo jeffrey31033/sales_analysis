@@ -8,13 +8,14 @@
 - [Code](#Code)
 
 ### Project Overview
+---
 
 The objective of this data analysis project is to provide insights into various aspects of the sales performance of a retail store from 1996Q3 to 1998Q4. Through a comprehensive data analysis, our goal is to discern trends, make well-informed, data-driven decisions, and enhance our comprehension of the company's overall performance.
 
 The project unfolds in three different phases. Firstly, we establish a data warehouse by merging and aggregating data from multiple tables to create a unified and informative dataset. In the second phase, we conduct exploratory data analysis by executing specific queries to achieve predefined objectives and extract valuable insights from the data. Finally, we employ Tableau to create visualizations that effectively convey the findings derived from the data warehouse.
 
 ### Data Sources
-
+---
 Sales Data: The primary dataset used for analysis derived from the final project in data management course, containing detailed information about each order made by the company
 
 ### Tools
@@ -23,7 +24,7 @@ Sales Data: The primary dataset used for analysis derived from the final project
 -	Tableau – Visualizing Data from Data Warehouse
 
 ### First Phase 
-
+---
 During the initial phase, I focused on constructing a data warehouse, gaining deeper insights into customer behavior and product-related trends. I began by selecting the order id as the primary column. Following this, I aggregated various aspects of revenue and discounts linked to different product types, spanning across numerous orders. 
 <br />
 (The table only screen shot for 25 rows among 830 rows)
@@ -33,7 +34,7 @@ During the initial phase, I focused on constructing a data warehouse, gaining de
 <img width="271" alt="data warehouse 3" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/d4964aa7-7f71-46ec-aa81-02207ba49063">
 
 ### Second Phase
-
+---
 In the second phase, my attention shifted to performing exploratory data analysis and utilized queries on the newly established data warehouse. I organized these queries into three key areas: customer, country, and product
 
 #### Customer
@@ -76,7 +77,7 @@ The table clearly illustrates that there isn't a direct correlation between the 
    The table provides a comparative analysis of the ranking based on percentage discounts and the ranking in terms of total revenue. Though meat/poultry and seafood categories are not among the most valuable for our company, they still receive significant discounts. Unless there are some specific reasons justifying this strategy, it may be prudent to reevaluate our discount policies for these products.
 
 ### Code
-
+---
 #### First phase – Building Data Warehouse
 ```sql
 SET sql_mode = (SELECT REPLACE(@@SQL_MODE, "ONLY_FULL_GROUP_BY", ""));
