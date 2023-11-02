@@ -36,7 +36,8 @@ In the second phase, my attention shifted to performing exploratory data analysi
    <img width="525" alt="query_1-Should we give discounts to these customers" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/2b9a0c95-081b-4759-96e9-bed87f067d1a"> <br>
    The table provides insights into which customers haven't delivered the value we anticipated. It's organized by the rank of the discount percentage. Typically, larger discounts are reserved for customers who buy more products from us. However, there's a noticeable discrepancy in the volume of products purchased by Piccolo und mehr and LILA-Supermercado compared to the discounts they receive. Unless there are specific reasons for this anomaly, we should consider reducing their discount percentages.
 
-2. What is the predominant product type purchased by each customer?
+2. What is the predominant product type purchased by each customer? <br>
+   (The table only screen shot for three customers among eighty-nine customers in total)
    <img width="389" alt="query_3-What product type does a customer buy the most" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/203bb7f6-610c-4cb0-994a-f20e2a018dba"> <br> 
 The table offers a detailed view of each customer's revenue composition. With this knowledge of their revenue structure, we're equipped to tailor our pricing strategies according to different customer tiers. This approach allows us to create a product portfolio and implement bundle pricing for our clients. Take Bon app’ as an example, considering that seafood and meat/poultry are ranked first and eighth in sales respectively, a strategic move would be to combine select offerings from both categories into a bundled product portfolio. This strategy could potentially enhance our sales in the meat/poultry category.
 
