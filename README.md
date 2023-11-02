@@ -4,7 +4,7 @@
 - [Project Overview](#Project-overview)
 - [Data Sources](#Data-sources)
 - [First Phase](#First-phase)
-- [Second Phase](#second-phase)
+- [Second Phase](#Second-phase)
 - [Code](#Code)
 
 ### Project Overview
@@ -22,11 +22,13 @@ Sales Data: The primary dataset used for analysis derived from the final project
 -	MYSQL – Building Data Warehouse and Execute Queries  
 -	Tableau – Visualizing Data from Data Warehouse
 
-### First Phase – Building Data Warehouse
+### First Phase 
 
-To acquire a more profound understanding of customer behavior and product-related insights, my initial choice for the first column is order id. I then aggregate diverse facets of revenue and discounts associated with different product types across various orders.
+During the initial phase, I focused on constructing a data warehouse, gaining deeper insights into customer behavior and product-related trends. I began by selecting the order id as the primary column. Following this, I aggregated various aspects of revenue and discounts linked to different product types, spanning across numerous orders.
 
-### Second Phase – Exploratory Data Analysis
+### Second Phase
+
+In the second phase, my attention shifted to performing exploratory data analysis and utilized queries on the newly established data warehouse. I organized these queries into three key areas: customer, country, and product
 
 #### Customer
 
