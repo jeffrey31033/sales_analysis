@@ -2,7 +2,9 @@
 
 ## Table of Contents
 - [Project Overview](#Project-overview)
-- []
+- [Data Sources](#Data-sources)
+- [First Phase](#First-phase)
+- [Second Phase](#Second-phase)
 
 ### Project Overview
 
@@ -25,7 +27,7 @@ To acquire a more profound understanding of customer behavior and product-relate
 
 ### Second Phase – Exploratory Data Analysis
 
-#### Customers
+#### Customer
 
 1. Should discounts be offered to these customers?
    <img width="525" alt="query_1-Should we give discounts to these customers" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/2b9a0c95-081b-4759-96e9-bed87f067d1a"> <br>
@@ -63,4 +65,279 @@ The table clearly illustrates that there isn't a direct correlation between the 
    <img width="506" alt="query_6-Are the discounts on different product type reasonable" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/fbf2c28d-3543-47cd-8fe6-267420fb71d8"> <br>
    The table provides a comparative analysis of the ranking based on percentage discounts and the ranking in terms of total revenue. Though meat/poultry and seafood categories are not among the most valuable for our company, they still receive significant discounts. Unless there are some specific reasons justifying this strategy, it may be prudent to reevaluate our discount policies for these products.
 
+### Code
+
+#### First phase - – Building Data Warehouse
+```sql
+SET sql_mode = (SELECT REPLACE(@@SQL_MODE, "ONLY_FULL_GROUP_BY", ""));
+
+CREATE OR REPLACE VIEW datawarehouse_portfolio2  AS
+SELECT sub1.OrderID, sub1.CustomerID, sub2.CompanyName AS CustomerName, sub2.Country AS CustomerCountry, sub1.OrderDate, sub1.RequiredDate, sub1.ShippedDate, sub1.TotalFreight, sub1.ShipperCompanyName, 
+       sub1.OriginalRevenue, sub1.TotalDiscount,
+       sub3.RevenueInBeverages, sub3.RevenueInCondiments, sub3.RevenueInConfections, sub3.RevenueInDairyProducts, sub3.RevenueInGrainsAndCereals, sub3.RevenueInMeatAndPoultry,
+       sub3.RevenueInProduce, sub3.RevenueInSeafood,
+       sub4.DiscountInBeverages, sub4.DiscountInCondiments, sub4.DiscountInConfections, sub4.DiscountInDairyProducts, sub4.DiscountInGrainsAndCereals, sub4.DiscountInMeatAndPoultry,
+       sub4.DiscountInProduce, sub4.DiscountInSeafood
+FROM (SELECT o.OrderID, o.CustomerID, STR_TO_DATE(OrderDate, '%m/%d/%Y') AS OrderDate, STR_TO_DATE(RequiredDate, '%m/%d/%Y') AS RequiredDate, STR_TO_DATE(ShippedDate, '%m/%d/%Y') AS ShippedDate,
+             o.Freight AS TotalFreight, sh.CompanyName AS ShipperCompanyName,
+			 ROUND(SUM(Quantity*UnitPrice),2) AS OriginalRevenue, ROUND(SUM(Quantity*UnitPrice*Discount),2) AS TotalDiscount
+	  FROM orders AS o
+	  JOIN order_details AS od
+	  ON o.OrderID = od.OrderID
+      JOIN shippers AS sh
+      ON sh.ShipperID = o.ShipVia
+	  GROUP By OrderID) AS sub1
+JOIN (SELECT o.OrderID, o.CustomerID, c.CompanyName, c.Country AS Country, STR_TO_DATE(OrderDate, '%m/%d/%Y') AS OrderDate, 
+             STR_TO_DATE(RequiredDate, '%m/%d/%Y') AS RequiredDate, STR_TO_DATE(ShippedDate, '%m/%d/%Y') AS ShippedDate
+	  FROM orders AS o
+	  JOIN customers AS c
+	  ON c.CustomerID = o.CustomerID) AS sub2
+ON sub1.orderID = sub2.orderID
+JOIN (SELECT s.OrderID, 
+             ROUND(SUM(CASE WHEN categoryName = 'Beverages' THEN subtotal ELSE 0 END),2) AS RevenueInBeverages,
+			 ROUND(SUM(CASE WHEN CategoryName = 'Condiments' THEN subtotal ELSE 0 END),2) AS RevenueInCondiments,
+			 ROUND(SUM(CASE WHEN CategoryName = 'Confections' THEN subtotal ELSE 0 END),2) AS RevenueInConfections,
+			 ROUND(SUM(CASE WHEN CategoryName = 'Dairy Products' THEN subtotal ELSE 0 END),2) AS RevenueInDairyProducts,
+			 ROUND(SUM(CASE WHEN CategoryName = 'Grains/Cereals' THEN subtotal ELSE 0 END),2) AS RevenueInGrainsAndCereals,
+			 ROUND(SUM(CASE WHEN CategoryName = 'Meat/Poultry' THEN subtotal ELSE 0 END),2) RevenueInMeatAndPoultry,
+			 ROUND(SUM(CASE WHEN CategoryName = 'Produce' THEN subtotal ELSE 0 END),2) AS RevenueInProduce,
+		     ROUND(SUM(CASE WHEN CategoryName = 'Seafood' THEN subtotal ELSE 0 END),2) AS RevenueInSeafood
+FROM (SELECT o.OrderID, c.CategoryName , SUM(od.UnitPrice * (1 - od.Discount) * od.Quantity) AS subtotal
+      FROM orders AS o
+      JOIN order_details AS od
+      USING (OrderID)
+      JOIN products AS p
+      USING (ProductID)
+      JOIN categories AS c
+      USING (CategoryID)
+      GROUP BY OrderID, CategoryID
+      ORDER BY OrderID) AS s
+      GROUP BY OrderID) AS sub3
+ON sub1.OrderID = sub3.OrderID
+JOIN (SELECT OrderID,
+			 ROUND(SUM(CASE WHEN categoryName = 'Beverages' THEN Discount ELSE 0 END),2) AS DiscountInBeverages,
+			 ROUND(SUM(CASE WHEN CategoryName = 'Condiments' THEN Discount ELSE 0 END),2) AS DiscountInCondiments,
+			 ROUND(SUM(CASE WHEN CategoryName = 'Confections' THEN Discount ELSE 0 END),2) AS DiscountInConfections,
+			 ROUND(SUM(CASE WHEN CategoryName = 'Dairy Products' THEN Discount ELSE 0 END),2) AS DiscountInDairyProducts,
+			 ROUND(SUM(CASE WHEN CategoryName = 'Grains/Cereals' THEN Discount ELSE 0 END),2) AS DiscountInGrainsAndCereals,
+			 ROUND(SUM(CASE WHEN CategoryName = 'Meat/Poultry' THEN Discount ELSE 0 END),2) DiscountInMeatAndPoultry,
+			 ROUND(SUM(CASE WHEN CategoryName = 'Produce' THEN Discount ELSE 0 END),2) AS DiscountInProduce,
+			 ROUND(SUM(CASE WHEN CategoryName = 'Seafood' THEN Discount ELSE 0 END),2) AS DiscountInSeafood
+		FROM (SELECT o.OrderID, c.CategoryName , ROUND(SUM(od.UnitPrice * (od.Discount) * od.Quantity),2) AS Discount
+			  FROM orders AS o
+			  JOIN order_details AS od
+			  USING (OrderID)
+			  JOIN products AS p
+			  USING (ProductID)
+			  JOIN categories AS c
+			  USING (CategoryID)
+			  GROUP BY OrderID, CategoryID
+			  ORDER BY OrderID) AS sub1
+GROUP BY OrderID) AS sub4
+ON sub1.OrderID = sub4.OrderID
+ORDER BY OrderID;
+```
+
+#### Second Phase – Exploratory Data Analysis
+
+##### Customer
+
+1. Should discounts be offered to these customers?
+```sql
+WITH sub1 AS ( 
+SELECT CustomerID, CustomerName, ROUND(SUM(OriginalRevenue),2) AS TotalRevenue, ROUND(SUM(TotalDiscount),2) AS TotalDiscount, 
+			  ROUND(SUM(TotalDiscount) / SUM(OriginalRevenue) * 100, 2) AS DiscountPercent
+FROM datawarehouse_portfolio2
+GROUP BY CustomerID
+ORDER BY CustomerID)
+SELECT CustomerName, TotalRevenue, TotalDiscount, DiscountPercent,
+       RANK() OVER(ORDER BY TotalRevenue DESC) AS RankOnTotalRevenue,
+       RANK() OVER(ORDER BY DiscountPercent DESC) AS RankOnDiscountPercent
+FROM sub1
+WHERE sub1.TotalRevenue > (SELECT AVG(TotalRevenue)
+						   FROM sub1)
+ORDER BY RankOnDiscountPercent;
+```
+2. What is the predominant product type purchased by each customer?
+```sql
+WITH sub1 AS ( 
+SELECT CustomerID, CustomerName, ROUND(SUM(OriginalRevenue),2) AS TotalRevenue, ROUND(SUM(TotalDiscount),2) AS TotalDiscount, 
+			  ROUND(SUM(TotalDiscount) / SUM(OriginalRevenue) * 100, 2) AS DiscountPercent
+FROM datawarehouse_portfolio2
+GROUP BY CustomerID
+ORDER BY CustomerID), 
+sub2 AS (
+SELECT CustomerName, CustomerCountry, ROUND(SUM(RevenueInBeverages),2) AS RevenueInBeverages, ROUND(SUM(RevenueInCondiments),2) AS RevenueInCondiments, 
+       ROUND(SUM(RevenueInConfections),2) AS RevenueInConfections, ROUND(SUM(RevenueInDairyProducts),2) AS RevenueInDairyProducts,
+       ROUND(SUM(RevenueInGrainsAndCereals),2) AS RevenueInGrainsAndCereals, ROUND(SUM(RevenueInMeatAndPoultry),2) AS RevenueInMeatAndPoultry, 
+       ROUND(SUM(RevenueInProduce),2) AS RevenueInProduce, ROUND(SUM(RevenueInSeafood),2) AS RevenueInSeafood
+FROM datawarehouse_portfolio2
+WHERE CustomerID IN (SELECT CustomerID FROM sub1 WHERE TotalRevenue > (SELECT AVG(TotalRevenue) FROM sub1))
+GROUP BY CustomerID
+ORDER BY CustomerID), 
+sub3 AS (
+SELECT CustomerName, CustomerCountry, 'Beverages' AS Category, RevenueInBeverages AS Revenue
+FROM sub2
+UNION ALL
+SELECT CustomerName, CustomerCountry, 'Condiments' AS Category, RevenueInCondiments AS Revenue
+FROM sub2
+UNION ALL
+SELECT CustomerName, CustomerCountry, 'Confections' AS Category, RevenueInConfections AS Revenue
+FROM sub2
+UNION ALL 
+SELECT CustomerName, CustomerCountry, 'Grains And Cereals' AS Category, RevenueInGrainsAndCereals AS Revenue
+FROM sub2
+UNION
+SELECT CustomerName, CustomerCountry, 'DairyProducts' AS Category, RevenueInDairyProducts AS Revenue
+FROM sub2
+UNION ALL
+SELECT CustomerName, CustomerCountry, 'Meat And Poultry' AS Category, RevenueInMeatAndPoultry AS Revenue
+FROM sub2
+UNION ALL
+SELECT CustomerName, CustomerCountry, 'Produce' AS Category, RevenueInProduce AS Revenue
+FROM sub2
+UNION ALL
+SELECT CustomerName, CustomerCountry, 'Seafood' AS Category, RevenueInSeafood AS Revenue
+FROM sub2
+ORDER BY CustomerName)
+SELECT CustomerName, CustomerCountry, Category, Revenue,
+       Rank() OVER(PARTITION BY CustomerName ORDER BY Revenue DESC) AS RankOnCategory
+FROM sub3
+ORDER BY CustomerName;
+```
+3. Could we be losing key customers due to delayed shipments?
+```sql
+SELECT sub2.CustomerName, sub2.CustomerCountry, sub2.NumberOfAdvance, sub2.NumberOfOnTime, sub2.NumberOfLate, sub2.PercentOfLate,
+       sub4.RankOnTotalRevenue
+FROM (SELECT CustomerName, CustomerCountry,
+		     SUM(CASE WHEN Time = 'Advance' THEN 1 ELSE 0 END) AS NumberOfAdvance,
+			 SUM(CASE WHEN Time = 'On Time' THEN 1 ELSE 0 END) AS NumberOfOnTime,
+		     SUM(CASE WHEN Time = 'Late' THEN 1 ELSE 0 END) AS NumberOfLate,
+			 ROUND(SUM(CASE WHEN Time = 'Late' THEN 1 ELSE 0 END) / (SUM(CASE WHEN Time = 'Advance' THEN 1 ELSE 0 END) + SUM(CASE WHEN Time = 'On Time' THEN 1 ELSE 0 END) + SUM(CASE WHEN Time = 'Late' THEN 1 ELSE 0 END)) * 100, 2) AS PercentOfLate
+	  FROM (SELECT OrderID, CustomerName, CustomerCountry,
+                   CASE WHEN RequiredDate < ShippedDate THEN 'Late' 
+				   WHEN RequiredDate = ShippedDate THEN 'On Time'
+				   WHEN RequiredDate > ShippedDate THEN 'Advance' 
+				   ELSE 'No Data' END AS Time
+			FROM datawarehouse_portfolio2
+			ORDER BY CustomerName) AS sub1
+GROUP BY CustomerName) sub2
+JOIN (SELECT CustomerName,
+			 TotalRevenue,
+			 RANK() OVER(ORDER BY TotalRevenue DESC) AS RankOnTotalRevenue
+      FROM(SELECT CustomerName, SUM(OriginalRevenue) AS TotalRevenue
+	       FROM datawarehouse_portfolio2
+	       GROUP BY CustomerID
+	       ORDER BY CustomerID) AS sub3) AS sub4
+ON sub2.CustomerName =sub4.CustomerName
+ORDER BY PercentOfLate DESC;
+```
+4. Is our dependence on a particular shipper excessively high for each individual customer?
+```sql
+SELECT Country, TotalRevenueOnFederalShipping, TotalRevenueOnSpeedyExpress, TotalRevenueOnUnitedPackage,
+       ROUND(TotalRevenueOnFederalShipping / (TotalRevenueOnFederalShipping + TotalRevenueOnSpeedyExpress + TotalRevenueOnUnitedPackage) * 100,2) AS PercentOnFederalShipping,
+       ROUND(TotalRevenueOnSpeedyExpress / (TotalRevenueOnFederalShipping + TotalRevenueOnSpeedyExpress + TotalRevenueOnUnitedPackage) * 100,2) AS PercentOnSpeedyExpress,
+        ROUND(TotalRevenueOnUnitedPackage / (TotalRevenueOnFederalShipping + TotalRevenueOnSpeedyExpress + TotalRevenueOnUnitedPackage) * 100,2) AS PercentOnUnitedPackage
+FROM (SELECT Country,
+             SUM(CASE WHEN ShipperCompanyName = 'Federal Shipping' THEN TotalRevenue ELSE 0 END) AS TotalRevenueOnFederalShipping,
+			 SUM(CASE WHEN ShipperCompanyName = 'Speedy Express' THEN TotalRevenue ELSE 0 END) AS TotalRevenueOnSpeedyExpress,
+			 SUM(CASE WHEN ShipperCompanyName = 'United Package' THEN TotalRevenue ELSE 0 END) AS TotalRevenueOnUnitedPackage
+	  FROM (SELECT CustomerCountry AS Country, ShipperCompanyName, SUM(OriginalRevenue) AS TotalRevenue
+			FROM datawarehouse_portfolio2
+			GROUP BY CustomerCountry, ShipperCompanyName
+			ORDER BY CustomerCountry) AS sub1
+	  GROUP BY Country
+	  ORDER BY Country) AS sub1;
+```
+6. Which other customers are significant to our business?
+```sql
+WITH sub1 AS (
+SELECT CustomerName, COUNT(OrderID) AS NumberOfOrder, ROUND(SUM(OriginalRevenue) - SUM(TotalDiscount),2) AS TotalActualRevenue,
+       ROUND((SUM(OriginalRevenue) - SUM(TotalDiscount)) / COUNT(OrderID),2) AS AverageAmountPerOrder
+FROM datawarehouse_portfolio2
+GROUP BY CustomerID)
+SELECT *,
+       RANK() OVER(ORDER BY TotalActualRevenue DESC) AS RankOnTotalActualRevenue,
+       RANK() OVER(ORDER BY AverageAmountPerOrder DESC) AS RankOnAverageAmountPerOrder
+FROM sub1;
+```
+
+##### Country
+
+1. The top 10 countries have been the highest revenue generators for the past three years
+```sql
+WITH sub1 AS (
+SELECT CustomerCountry AS Country, SUM(OriginalRevenue) AS CountryOriginalRevenue, ROUND(SUM(TotalDiscount),2) AS CountryTotalDiscount,
+       ROUND(SUM(OriginalRevenue) - SUM(TotalDiscount),2) AS CountryTotalActualRevenue,
+       (SELECT ROUND(SUM(OriginalRevenue) - SUM(TotalDiscount),2) FROM datawarehouse_portfolio2) AS TotalActualRevenue
+FROM datawarehouse_portfolio2
+GROUP BY CustomerCountry)
+SELECT *,
+       ROUND(CountryTotalActualRevenue / TotalActualRevenue * 100,2) AS PercentOfRevenue
+FROM sub1
+ORDER BY PercentOfRevenue DESC;
+```
+2. Which market holds the greatest potential?
+```sql
+SELECT sub2.Country, RevenueIn1996, RevenueIn1997, RevenueIn1998,
+       RevenueIn1996 + RevenueIn1997 + RevenueIn1998 AS TotalRevenue,
+       ROUND((RevenueIn1997 - RevenueIn1996) / RevenueIn1996 * 100,2) AS GrowthRateIn1997,
+       ROUND((RevenueIn1998 - RevenueIn1997) / RevenueIn1997 * 100,2) AS GrowthRateIn1998,
+       ROUND((RevenueIn1998 - RevenueIn1996) / RevenueIn1996 * 100,2) AS TotalGrowthRate,
+       sub4.RankOnTotalRevenue
+FROM (SELECT Country,
+			 SUM(CASE WHEN Year = 1996 THEN OriginalRevenue ELSE 0 END) AS RevenueIn1996, 
+			 SUM(CASE WHEN Year = 1997 THEN OriginalRevenue ELSE 0 END) AS RevenueIn1997,
+			 SUM(CASE WHEN Year = 1998 THEN OriginalRevenue ELSE 0 END) AS RevenueIn1998
+	  FROM (SELECT CustomerCountry AS Country, year(OrderDate) AS Year, SUM(OriginalRevenue) AS OriginalRevenue
+	        FROM datawarehouse_portfolio2
+	        GROUP BY Country, year(OrderDate)
+	        ORDER BY Country, Year) AS sub1
+      GROUP BY Country) AS sub2
+JOIN (SELECT Country, 
+       RANK() OVER(ORDER BY TotalRevenue DESC) AS RankOnTotalRevenue
+      FROM (SELECT CustomerCountry AS Country, SUM(OriginalRevenue) AS TotalRevenue
+	        FROM datawarehouse_portfolio2
+            GROUP BY CustomerCountry) AS sub3) AS sub4
+ON sub2.Country = sub4.Country
+ORDER BY TotalGrowthRate DESC;
+```
+
+##### Product
+
+1. Are the discounts offered on various product types justified?
+```sql
+WITH sub2 AS (
+SELECT Category, ROUND(SUM(Revenue),2) AS TotalRevenue, ROUND(SUM(Discount),2) AS TotalDiscount,
+       ROUND(SUM(Discount) / SUM(Revenue) * 100,2) AS PercentOfDiscount
+FROM ( SELECT 'Beverages' AS Category, RevenueInBeverages AS Revenue, DiscountInBeverages AS Discount
+	   FROM datawarehouse_portfolio2
+	   UNION ALL
+	   SELECT 'Condiments' AS Category, RevenueInCondiments AS Revenue, DiscountInCondiments AS Discount
+	   FROM datawarehouse_portfolio2
+       UNION ALL 
+	   SELECT 'Confections' AS Category, RevenueInConfections AS Revenue, DiscountInConfections AS Discount
+       FROM datawarehouse_portfolio2
+	   UNION ALL
+	   SELECT 'Dairy Products' AS Category, RevenueInDairyProducts AS Revenue, DiscountInDairyProducts AS Discount
+	   FROM datawarehouse_portfolio2
+	   UNION ALL
+       SELECT 'Grains And Cereals' AS Category, RevenueInGrainsAndCereals AS Revenue, DiscountInGrainsAndCereals AS Discount
+	   FROM datawarehouse_portfolio2
+	   UNION ALL
+	   SELECT 'Meat And Poultry' AS Category, RevenueInMeatAndPoultry AS Revenue, DiscountInMeatAndPoultry AS Discount
+	   FROM datawarehouse_portfolio2
+	   UNION ALL 
+	   SELECT 'Produce' AS Category, RevenueInProduce AS Revenue, DiscountInProduce AS Discount
+	   FROM datawarehouse_portfolio2
+       UNION ALL 
+	   SELECT 'Seafood' AS Category, RevenueInSeafood AS Revenue, DiscountInSeafood AS Discount
+	   FROM datawarehouse_portfolio2) AS sub1
+GROUP BY Category) 
+SELECT *,
+       RANK() OVER(ORDER BY TotalRevenue DESC) AS RankOnTotalRevenue,
+       RANK() OVER(ORDER BY PercentOfDiscount DESC) AS RankOnPercentOfDiscount
+FROM sub2
+ORDER BY RankOnPercentOfDiscount;
+```
 
