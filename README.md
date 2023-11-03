@@ -41,42 +41,55 @@ In the second phase, my attention shifted to performing exploratory data analysi
 
 #### Customer
 
-**1. Should discounts be offered to these customers?** <br>
+**1. Should discounts be offered to these customers?** 
+<br>
 (Here, I only track the customers whoose sales exceed average sales among all the customers)
+<br>
 <img width="497" alt="query_1-Should we give discounts to these customers" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/595bfd9a-42dc-433d-ac57-0e213f7b4bdb">
 <br>
 The table provides insights into which customers haven't delivered the value we anticipated. It's organized by the rank of the discount percentage. Typically, larger discounts are reserved for customers who buy more products from us. However, there's a noticeable discrepancy in the volume of products purchased by Piccolo und mehr and LILA-Supermercado compared to the discounts they receive. Unless there are specific reasons for this anomaly, we should consider reducing their discount percentages.
 
-**2. What is the predominant product type purchased by each customer?** <br>
-   (The table only screen shot for three customers among eighty-nine customers in total)
-   <img width="613" alt="query_2-Which market has the most potential" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/6cd1ee2d-179f-4033-891d-b9bcea6ecbcd">
+**2. What is the predominant product type purchased by each customer?** 
+<br>
+(The table only screen shot for three customers among eighty-nine customers in total)
+<br>
+<img width="613" alt="query_2-Which market has the most potential" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/6cd1ee2d-179f-4033-891d-b9bcea6ecbcd">
 <br> 
 The table offers a detailed view of each customer's sales composition. With this knowledge of their sales structure, we're equipped to tailor our pricing strategies according to different customer tiers. This approach allows us to create a product portfolio and implement bundle pricing for our clients. Take Bon app’ as an example, considering that seafood and meat/poultry are ranked first and eighth in sales respectively, a strategic move would be to combine select offerings from both categories into a bundled product portfolio. This strategy could potentially enhance our sales in the meat/poultry category.
 
-**3. Could we be losing key customers due to delayed shipments?** <br>
-    (Here, I only screen shot for those customers who experience dalys in receiving their orders)
-    <img width="578" alt="query_4-Are we possible losing our important due to the late shipment" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/a8d5007f-b8f8-4ddc-a29d-49222186b454">
+**3. Could we be losing key customers due to delayed shipments?** 
+<br>
+(Here, I only screen shot for those customers who experience dalys in receiving their orders)
+<br>
+<img width="578" alt="query_4-Are we possible losing our important due to the late shipment" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/a8d5007f-b8f8-4ddc-a29d-49222186b454">
 <br>
 Ensuring order processing on time is key to enhancing customer experience, especially for our most valuable clients. The data reveals a discrepancy between the required and actual shipping dates. The table highlights the proportion of late orders for each customer. Notably, among our top 20 customers by total sales, eleven have experienced delays in receiving their orders. It's crucial for us to minimize these late deliveries, as the primary cause appears to be internal processing inefficiencies rather than shipping delays. Addressing this issue will improve customer satisfaction.
 
 
-**4. Which other customers are significant to our business?** <br>
-     (Here, I only screen shot for 20 observations)
-     <img width="619" alt="query_7-Which customers are also important to us" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/72c2ce86-4afc-4e2b-87ce-f5e705d7d2af"> <br>
+**4. Which other customers are significant to our business?** 
+<br>
+(Here, I only screen shot for 20 observations)
+<br>
+<img width="619" alt="query_7-Which customers are also important to us" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/72c2ce86-4afc-4e2b-87ce-f5e705d7d2af">
+<br>
 The table clearly illustrates that there isn't a direct correlation between the rank based on total actual revenue and the rank based on average subtotal per order for each customer. For instance, Simons bistro ranks 35th in terms of subtotal, yet its average subtotal per order is impressively higher, at rank 6. This disparity suggests that customers like Simons bistro, who may not be top-ranked in overall spending but place large orders on average, should also be a focus for our sales strategy. Increasing the purchase frequency of such customers could significantly benefit our company due to the substantial value of each order they place.
 
 #### Country
 
 **1. The top 10 countries have been the highest revenue generators for the past three years**
+<br>
 <img width="491" alt="query_8-The top 10 countries produce the most revenue for 3 years" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/10262606-ae74-4f25-94d9-078e7612e8b9">
 <br>
-   This query provides vital data on the top 10 countries contributing the most to our sales, including the specific percentage each country contributes to our total sales. Such information is instrumental in guiding our resource allocation decisions, particularly in areas like advertising and marketing, enabling us to strategize our efforts more effectively in these key markets.
+This query provides vital data on the top 10 countries contributing the most to our sales, including the specific percentage each country contributes to our total sales. Such information is instrumental in guiding our resource allocation decisions, particularly in areas like advertising and marketing, enabling us to strategize our efforts more effectively in these key markets.
 
 **2. Which market holds the greatest potential?**
-<img width="613" alt="query_2-Which market has the most potential" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/79590b8b-aee0-40c1-896e-8f25a9a82446"> <br>
-   Understanding growth rates across various markets is crucial in determining the focus countries for a company and in assessing the effectiveness of our strategies. If a significant investment in advertising in a particular country doesn't yield an increase in sales, it's a clear indicator that our marketing approach needs recalibration as the return on investment is not aligning with expectations. Moreover, it's important to recognize that while some countries such as Italy and Poland might not be among the top 10 countries in terms of overall contribution to our business, their high growth rates shouldn't be overlooked. Such markets demand greater attention due to their potential for rapid expansion.
+<br>
+<img width="613" alt="query_2-Which market has the most potential" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/79590b8b-aee0-40c1-896e-8f25a9a82446">
+<br>
+Understanding growth rates across various markets is crucial in determining the focus countries for a company and in assessing the effectiveness of our strategies. If a significant investment in advertising in a particular country doesn't yield an increase in sales, it's a clear indicator that our marketing approach needs recalibration as the return on investment is not aligning with expectations. Moreover, it's important to recognize that while some countries such as Italy and Poland might not be among the top 10 countries in terms of overall contribution to our business, their high growth rates shouldn't be overlooked. Such markets demand greater attention due to their potential for rapid expansion.
 
 **3. Is our dependence on a particular shipper excessively high for each contry?**
+<br>
 <img width="735" alt="query_5-Do we rely too much on one specific shipper" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/fc6b1279-2e17-4397-bc70-2ead792fe052">
 <br>
 The data presented provides valuable perspectives on risk distribution. Take Norway as an example: a significant portion of the total shipments predominantly depends on United Package. This scenario highlights a considerable risk: if United Package were to face any operational challenges, it would be difficult for us to find an alternative promptly. Such a dependency means that any disruption in United Package's services could impede our ability to deliver products efficiently, potentially resulting in customer dissatisfaction. It's important for us to consider diversifying our shipping partners to mitigate these risks.
@@ -84,10 +97,11 @@ The data presented provides valuable perspectives on risk distribution. Take Nor
 
 #### Product
 
-**1. Are the discounts offered on various product types justified?** <br>
+**1. Are the discounts offered on various product types justified?** 
+<br>
 <img width="484" alt="query_6-Are the discounts on different product type reasonable" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/a8885b50-e029-4abf-a601-200300ee7cff">
 <br>
-   The table provides a comparative analysis of the ranking based on percentage discounts and the ranking in terms of total sales. Though meat/poultry and seafood categories are not among the most valuable for our company, they still receive significant discounts. Unless there are some specific reasons justifying this strategy, it may be prudent to reevaluate our discount policies for these products.
+The table provides a comparative analysis of the ranking based on percentage discounts and the ranking in terms of total sales. Though meat/poultry and seafood categories are not among the most valuable for our company, they still receive significant discounts. Unless there are some specific reasons justifying this strategy, it may be prudent to reevaluate our discount policies for these products.
 
 ### Third Phase
 ---
@@ -402,4 +416,54 @@ SELECT *,
 FROM sub2
 ORDER BY RankOnPercentOfDiscount;
 ```
+#### Third phase – Buiding View for Visualization
+```sql
+USE cis467_final_project;
 
+CREATE OR REPLACE VIEW Aggregation_tableau AS
+SELECT o.OrderID, c.CustomerID, c.Country,
+       CASE WHEN sub2.GroupNumber = 1 THEN 'First Class Of Customer' 
+       WHEN sub2.GroupNumber = 2 THEN 'Second Class Of Customer' 
+       WHEN sub2.GroupNumber = 3 THEN 'Thrid Class Of Customer' 
+       WHEN sub2.GroupNumber = 4 THEN 'Forth Class Of Customer' 
+       WHEN sub2.GroupNumber = 5 THEN 'Fifth Class Of Customer' 
+       END AS ClassOfCustomer,
+       STR_TO_DATE(OrderDate, '%m/%d/%Y') AS OrderDate, STR_TO_DATE(RequiredDate, '%m/%d/%Y') AS RequiredDate,
+       STR_TO_DATE(ShippedDate, '%m/%d/%Y') AS ShippedDate, s.CompanyName,
+       od.ProductID, ca.CategoryName, od.UnitPrice, od.Quantity,
+       ROUND(od.UnitPrice * od.Quantity, 2) AS TotalSales,
+       ROUND(od.UnitPrice * od.Discount * od.Quantity, 2) AS TotalDiscount,
+       su.CompanyName AS SupplierName,
+       CONCAT(e.FirstName, "  " ,e.LastName) AS EmployeeName,
+       r.RegionDescription AS EmployeeRegion
+FROM orders AS o
+JOIN customers AS c
+ON o.CustomerID = c.CustomerID
+JOIN shippers AS s
+ON o.ShipVia = s.ShipperID
+JOIN order_details AS od
+ON o.OrderID = od.OrderID
+JOIN products AS p
+ON od.ProductID = p.ProductID
+JOIN categories AS ca
+ON p.CategoryID = ca.CategoryID
+JOIN suppliers AS su
+ON p.SupplierID = su.SupplierID
+JOIN employees AS e
+ON o.EmployeeID = e.EmployeeID
+JOIN employeeterritories AS et
+ON e.EmployeeID = et.EmployeeID
+JOIN territories AS t
+ON et.TerritoryID = t.TerritoryID
+JOIN region AS r
+ON t.RegionID = r.RegionID
+JOIN (SELECT CustomerID, SUM(TotalSales) AS TotalSales,
+      NTILE(5) OVER(ORDER BY SUM(TotalSales) DESC) AS GroupNumber
+      FROM (SELECT o.OrderID, o.CustomerID, ROUND(od.UnitPrice * od.Quantity, 2) AS TotalSales
+            FROM orders AS o
+            JOIN order_details AS od
+            ON o.OrderID = od.OrderID) AS sub1
+      GROUP BY CustomerID) AS sub2
+ON sub2.CustomerID = o.CustomerID
+ORDER BY OrderID;
+```
