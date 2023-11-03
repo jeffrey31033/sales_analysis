@@ -29,9 +29,9 @@ During the initial phase, I focused on constructing a data warehouse, gaining de
 <br />
 (The table only screen shot for 25 rows among 830 rows)
 <br />
-<img width="1032" alt="data warehouse 1" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/3a38cdfd-ade9-4dd6-bcb6-9543f308de0b">
-<img width="1006" alt="data warehouse 2" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/e40ec6aa-f74a-4f53-8626-624e8056ae2b">
-<img width="269" alt="data warehouse 3" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/759598c4-6b95-42ce-ab38-1d426f0a5ca3">
+<img width="980" alt="data warehouse 1" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/fe0ec181-30b9-4457-8fd1-e34058a68099">
+<img width="1049" alt="data warehouse 2" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/5102cfc8-327e-4d6d-9103-6fb9517375f5">
+<img width="163" alt="data warehouse 3" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/5ef04de0-407b-48c2-8789-594d6d2b854d">
 
 
 ### Second Phase
