@@ -4,8 +4,8 @@
 - [Project Overview](#Project-overview)
 - [Data Sources](#Data-sources)
 - [First Phase: Building Data Warehouse](#first-phase-building-data-warehouse)
-- [Second Phase](#Second-phase)
-- [Third Phase](#Third-phase)
+- [Second Phase: Exploratory Data Analysis](#second-phase-exploratory-data-analysis)
+- [Third Phase: Visualization](#third-phase-visualization)
 - [Code](#Code)
 
 ### Project Overview
@@ -35,7 +35,7 @@ During the initial phase, I focused on constructing a data warehouse, gaining de
 <img width="163" alt="data warehouse 3" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/5ef04de0-407b-48c2-8789-594d6d2b854d">
 
 
-### Second Phase
+### Second Phase: Exploratory Data Analysis
 ---
 In the second phase, my attention shifted to performing exploratory data analysis and utilized queries on the newly established data warehouse. I organized these queries into three key areas: customer, country, and product
 
@@ -103,7 +103,7 @@ The data presented provides valuable perspectives on risk distribution. Take Nor
 <br>
 The table provides a comparative analysis of the ranking based on percentage discounts and the ranking in terms of total sales. Though meat/poultry and seafood categories are not among the most valuable for our company, they still receive significant discounts. Unless there are some specific reasons justifying this strategy, it may be prudent to reevaluate our discount policies for these products.
 
-### Third Phase
+### Third Phase: Visualization
 ---
 In this phase, I focused on visualization to develop an insightful dashboard. Initially, I integrate various tables by each order ID to create a comprehensive view and classify our customers into five tiers according to their contribution to our business. Subsequently, I utilize Tableau to craft several graphical representations. Finally, I congregated these graphs into a coherent and informative dashboard.
 
@@ -213,7 +213,7 @@ ON sub1.OrderID = sub4.OrderID
 ORDER BY OrderID;
 ```
 
-#### Second Phase – Exploratory Data Analysis
+#### Second Phase: Exploratory Data Analysis
 
 ##### Customer
 
