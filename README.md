@@ -5,6 +5,7 @@
 - [Data Sources](#Data-sources)
 - [First Phase](#First-phase)
 - [Second Phase](#Second-phase)
+- [Third Phase](#Third-phase)
 - [Code](#Code)
 
 ### Project Overview
@@ -87,6 +88,8 @@ The data presented provides valuable perspectives on risk distribution. Take Nor
 <img width="484" alt="query_6-Are the discounts on different product type reasonable" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/a8885b50-e029-4abf-a601-200300ee7cff">
 <br>
    The table provides a comparative analysis of the ranking based on percentage discounts and the ranking in terms of total sales. Though meat/poultry and seafood categories are not among the most valuable for our company, they still receive significant discounts. Unless there are some specific reasons justifying this strategy, it may be prudent to reevaluate our discount policies for these products.
+
+### Third Phase
 
 ### Code
 ---
