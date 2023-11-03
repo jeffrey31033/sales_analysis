@@ -93,33 +93,38 @@ The data presented provides valuable perspectives on risk distribution. Take Nor
 ---
 In this phase, I focused on visualization to develop an insightful dashboard. Initially, I integrate various tables by each order ID to create a comprehensive view and classify our customers into five tiers according to their contribution to our business. Subsequently, I utilize Tableau to craft several graphical representations. Finally, I congregated these graphs into a coherent and informative dashboard.
 
-1. Sales and Discount
-   ![Sales and Discout](https://github.com/jeffrey31033/sales_analysis/assets/149200070/95730aa8-1dc3-49b4-ba02-80f4ed61f0e6)
-   <br>
+**1. Sales and Discount**
+<br>
+![Sales and Discout](https://github.com/jeffrey31033/sales_analysis/assets/149200070/95730aa8-1dc3-49b4-ba02-80f4ed61f0e6)
+<br>
 Analyzing sales data alongside discount rates is crucial for refining marketing strategies. Take, for instance, the grains/cereals category, which presents a notably higher discount percentage relative to other product groups. This observation prompts a strategic evaluation: is it justifiable to offer such substantial discounts in this category? Such insights can inform whether these incentives are effectively stimulating sales and profitability or if they require adjustment.
 
-2. Sales Given by Countries
-   ![Country Revenue ](https://github.com/jeffrey31033/sales_analysis/assets/149200070/7df17ee6-b270-45c7-b9f5-9c9308f1eef8)
-   <br>
+**2. Sales Given by Countries**
+<br>
+![Country Revenue ](https://github.com/jeffrey31033/sales_analysis/assets/149200070/7df17ee6-b270-45c7-b9f5-9c9308f1eef8)
+<br>
 The graph serves as a tool to discern the sales contributions of various countries to our business. By examining this sales structure, we can pinpoint the markets that warrant our focus and track the sales on each country.
 
-3. Sales Change by Quarter
-   ![Quarter Sales](https://github.com/jeffrey31033/sales_analysis/assets/149200070/377cf72f-5916-4e46-beda-f497acd750f2)
-   <br>
+**3. Sales Change by Quarter**
+<br>
+![Quarter Sales](https://github.com/jeffrey31033/sales_analysis/assets/149200070/377cf72f-5916-4e46-beda-f497acd750f2)
+<br>
 The line graph offers a visual representation of sales fluctuations across quarters, allowing us to discern trends in our revenue stream. Access to this trend data enables us to evaluate the impact of our marketing strategies over time. For example, we should identify the reason why there is a huge deduction in sales in 1998Q2.
 
-4. Product Composition Given by Different Class of Customers
-   ![Sales in Different Class of Customer](https://github.com/jeffrey31033/sales_analysis/assets/149200070/5b2f7316-4140-40c4-9c00-75f9b1fcfa93)
-   <br>
+**4. Product Composition Given by Different Class of Customers**
+<br>
+![Sales in Different Class of Customer](https://github.com/jeffrey31033/sales_analysis/assets/149200070/5b2f7316-4140-40c4-9c00-75f9b1fcfa93)
+<br>
 The graph shows the product mix purchased by varying customer segments. With this information, we can tailor distinct strategies for each segment. For instance, in the first class of customers, our strategy should concentrate on enhancing the beverages category. Conversely, for the second class, dairy products are predominant and warrant focused attention. Additionally, we can employ a product bundling approach, creating portfolios that pair complementary goods, potentially increasing sales in less dominant categories.
 
-5. Number Of Orders by quarter
-   ![Number of  orders](https://github.com/jeffrey31033/sales_analysis/assets/149200070/1117ae50-2688-481a-abf5-ffdb7fb0c11c)
-   <br>
+**5. Number Of Orders by quarter**
+<br>
+![Number of  orders](https://github.com/jeffrey31033/sales_analysis/assets/149200070/1117ae50-2688-481a-abf5-ffdb7fb0c11c)
+<br>
 The data on quarterly order volumes facilitates forecasting future order counts, which is useful for planning logistics and inventory based on specific country filters. Moreover, this information allows us to delve into the factors influencing order fluctuations. We can analyze whether these variations are seasonal trends or if they reflect customer dissatisfaction with our services, enabling targeted improvements.
 
-10. Dashboard
-   <img width="1001" alt="Dashboard" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/95ace936-1706-4637-8a97-7d31c1dff611">
+**6. Dashboard**
+<img width="1001" alt="Dashboard" src="https://github.com/jeffrey31033/sales_analysis/assets/149200070/95ace936-1706-4637-8a97-7d31c1dff611">
 
 ### Code
 ---
