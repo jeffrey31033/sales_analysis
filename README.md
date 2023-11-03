@@ -90,6 +90,14 @@ The data presented provides valuable perspectives on risk distribution. Take Nor
    The table provides a comparative analysis of the ranking based on percentage discounts and the ranking in terms of total sales. Though meat/poultry and seafood categories are not among the most valuable for our company, they still receive significant discounts. Unless there are some specific reasons justifying this strategy, it may be prudent to reevaluate our discount policies for these products.
 
 ### Third Phase
+---
+In this phase, I focused on visualization to develop an insightful dashboard. Initially, I integrate various tables by each order ID to create a comprehensive view and classify our customers into five tiers according to their contribution to our business. Subsequently, I utilize Tableau to craft several graphical representations. Finally, I congregated these graphs into a coherent and informative dashboard.
+
+1. Sales and Discount
+2. Sales Given by Countries
+3. Sales Change by Quarter
+4. Product Composition Given by Different Class of Customers
+5. Number Of Orders Given by Countries
 
 ### Code
 ---
