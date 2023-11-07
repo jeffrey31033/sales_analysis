@@ -13,7 +13,7 @@
 
 The objective of this data analysis project is to provide insights into various aspects of the sales performance of a wholesaler from 1996Q3 to 1998Q4. Through a comprehensive data analysis, our goal is to discern trends, make well-informed, data-driven decisions, and enhance our comprehension of the company's overall performance.
 
-The project categorize in three different phases. Firstly, we establish a data warehouse by merging and aggregating data from multiple tables to create a unified and informative dataset. In the second phase, I conduct exploratory data analysis by executing specific queries to achieve predefined objectives and extract valuable insights from the data. Finally, I use Tableau to create visualizations that effectively convey the findings derived from the data warehouse.
+The project is categorized in three different phases. Firstly, I establish a data warehouse by merging and aggregating data from multiple tables to create a unified and informative dataset. In the second phase, I conduct exploratory data analysis by executing specific queries to achieve predefined objectives and extract valuable insights from the data. Finally, I use Tableau to create visualizations that effectively convey the findings derived from the data.
 
 ### Data Sources
 ---
