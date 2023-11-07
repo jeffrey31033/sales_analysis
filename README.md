@@ -17,12 +17,12 @@ The project categorize in three different phases. Firstly, we establish a data w
 
 ### Data Sources
 ---
-Sales Data: The primary dataset used for analysis derived from the final project in data management course, containing detailed information about each order made by the company
+Sales Data: The primary dataset used for analysis was sourced from the final project in data management course, containing detailed information about each order made by the company
 
 ### Tools
 ---
--	MYSQL – Building Data Warehouse and Execute Queries  
--	Tableau – Visualizing Data from Data Warehouse
+-	MYSQL – Building Data Warehouse and Executing Queries  
+-	Tableau – Visualizing Data
 
 ### First Phase: Building Data Warehouse
 ---
