@@ -1,4 +1,4 @@
-# Data analysis in a retail store with SQL and Tableau
+# Data analysis in wholesales with SQL and Tableau
 
 ## Table of Contents
 - [Project Overview](#Project-overview)
@@ -11,9 +11,9 @@
 ### Project Overview
 ---
 
-The objective of this data analysis project is to provide insights into various aspects of the sales performance of a retail store from 1996Q3 to 1998Q4. Through a comprehensive data analysis, our goal is to discern trends, make well-informed, data-driven decisions, and enhance our comprehension of the company's overall performance.
+The objective of this data analysis project is to provide insights into various aspects of the sales performance of a wholesaler from 1996Q3 to 1998Q4. Through a comprehensive data analysis, our goal is to discern trends, make well-informed, data-driven decisions, and enhance our comprehension of the company's overall performance.
 
-The project unfolds in three different phases. Firstly, we establish a data warehouse by merging and aggregating data from multiple tables to create a unified and informative dataset. In the second phase, we conduct exploratory data analysis by executing specific queries to achieve predefined objectives and extract valuable insights from the data. Finally, we employ Tableau to create visualizations that effectively convey the findings derived from the data warehouse.
+The project categorize in three different phases. Firstly, we establish a data warehouse by merging and aggregating data from multiple tables to create a unified and informative dataset. In the second phase, I conduct exploratory data analysis by executing specific queries to achieve predefined objectives and extract valuable insights from the data. Finally, I use Tableau to create visualizations that effectively convey the findings derived from the data warehouse.
 
 ### Data Sources
 ---
